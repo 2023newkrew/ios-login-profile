@@ -6,16 +6,6 @@
 
 import UIKit
 
-enum LocalizedLiteral {
-    static let welcome = "welcome_message"
-    static let info = "info_message"
-    static let idText = "id_text_field"
-    static let passwordText = "password_text_field"
-    static let signIn = "sign_in_button"
-    static let signUp = "sign_up_button"
-    static let findAccount = "find_account_button"
-}
-
 class ViewController: UIViewController {
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var infoLabel: UILabel!
@@ -71,11 +61,5 @@ class ViewController: UIViewController {
         findAccountOrPasswordButton
             .titleLabel?
             .adjustsFontForContentSizeCategory = true
-    }
-}
-
-extension String {
-    var localized: String {
-        return NSLocalizedString(self, comment: "")
     }
 }
