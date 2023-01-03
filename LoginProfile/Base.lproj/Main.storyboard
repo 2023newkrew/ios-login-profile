@@ -99,7 +99,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="startTitle" destination="m89-4W-gyF" id="9CW-2Q-NaP"/>
+                        <outlet property="idTextField" destination="0bH-LY-L3w" id="GIW-yF-uFs"/>
+                        <outlet property="passwordTextField" destination="Q2j-D7-Dwa" id="af9-mD-ngf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
