@@ -53,6 +53,7 @@
 			isa = PBXGroup;
 			children = (
 				C7D7D7932767836100F01B39 /* LoginProfile */,
+				C7D7D7A22767836200F01B39 /* Info.plist */,
 				C7D7D7922767836100F01B39 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -68,21 +69,60 @@
 		C7D7D7932767836100F01B39 /* LoginProfile */ = {
 			isa = PBXGroup;
 			children = (
+				D7AFA00B2963F4B900EE44A8 /* Application */,
+				D7AFA00F2963F78100EE44A8 /* Assets */,
+				D7AFA00D2963F67D00EE44A8 /* Extension */,
+				C7D7D79F2767836200F01B39 /* LaunchScreen.storyboard */,
+				C7D7D79A2767836100F01B39 /* Main.storyboard */,
+				D7AFA00C2963F64F00EE44A8 /* UIComponents */,
+				D7AFA00E2963F76300EE44A8 /* UIViewController */,
+			);
+			path = LoginProfile;
+			sourceTree = "<group>";
+		};
+		D7AFA00B2963F4B900EE44A8 /* Application */ = {
+			isa = PBXGroup;
+			children = (
 				C7D7D7942767836100F01B39 /* AppDelegate.swift */,
 				C7D7D7962767836100F01B39 /* SceneDelegate.swift */,
-				C7D7D7982767836100F01B39 /* LoginViewController.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		D7AFA00C2963F64F00EE44A8 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
 				C7D7D7A8276783B200F01B39 /* CloseButton.swift */,
 				C7D7D7AC276783B200F01B39 /* CircleButton.swift */,
 				C7D7D7AB276783B200F01B39 /* FavouriteButton.swift */,
 				C7D7D7A9276783B200F01B39 /* GiftButton.swift */,
 				C7D7D7AA276783B200F01B39 /* WonButton.swift */,
-				C7D7D79A2767836100F01B39 /* Main.storyboard */,
-				C7D7D79D2767836200F01B39 /* Assets.xcassets */,
-				C7D7D79F2767836200F01B39 /* LaunchScreen.storyboard */,
-				C7D7D7A22767836200F01B39 /* Info.plist */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		D7AFA00D2963F67D00EE44A8 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
 				D7AFA0092963F36B00EE44A8 /* UIColor+Extension.swift */,
 			);
-			path = LoginProfile;
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		D7AFA00E2963F76300EE44A8 /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C7D7D7982767836100F01B39 /* LoginViewController.swift */,
+			);
+			path = UIViewController;
+			sourceTree = "<group>";
+		};
+		D7AFA00F2963F78100EE44A8 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				C7D7D79D2767836200F01B39 /* Assets.xcassets */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
