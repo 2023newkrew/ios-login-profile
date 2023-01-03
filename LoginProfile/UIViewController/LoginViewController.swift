@@ -21,10 +21,10 @@ class LoginViewController: UIViewController {
         
         drawUnderline(of: idTextField)
         drawUnderline(of: passwordTextField)
-        
-        idTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
-    
+}
+
+extension LoginViewController {
     func drawUnderline(of textField: UITextField){
         let border = CALayer()
         let underlineWidth = self.view.frame.width - Constant.sideSpace * 2
@@ -34,9 +34,9 @@ class LoginViewController: UIViewController {
     }
 }
 
-extension LoginViewController: UITextFieldDelegate {
-    @objc func textFieldDidChange(_ textField: UITextField) {
-        guard let textCount = textField.text?.count else {
+extension LoginViewController {
+    @IBAction func idTextFieldChanged(_ sender: Any) {
+        guard let textCount = idTextField.text?.count else {
             return
         }
         
