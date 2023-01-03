@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     
     @objc private func textFieldDidChange(_ sender: Any?) {
         guard let idText = idTextField.text else { return }
-        if idText.count >= 5 {
+        if idText.count >= Constants.idMinimumLength {
             signInButton.backgroundColor = .systemYellow
         } else {
             signInButton.backgroundColor = .systemGray6
@@ -62,4 +62,8 @@ class ViewController: UIViewController {
             .titleLabel?
             .adjustsFontForContentSizeCategory = true
     }
+}
+
+fileprivate enum Constants {
+    static let idMinimumLength = 5
 }
