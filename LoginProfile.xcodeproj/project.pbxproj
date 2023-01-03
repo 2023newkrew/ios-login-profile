@@ -53,7 +53,6 @@
 			isa = PBXGroup;
 			children = (
 				C7D7D7932767836100F01B39 /* LoginProfile */,
-				C7D7D7A22767836200F01B39 /* Info.plist */,
 				C7D7D7922767836100F01B39 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -69,6 +68,7 @@
 		C7D7D7932767836100F01B39 /* LoginProfile */ = {
 			isa = PBXGroup;
 			children = (
+				C7D7D7A22767836200F01B39 /* Info.plist */,
 				D7AFA00B2963F4B900EE44A8 /* Application */,
 				D7AFA00F2963F78100EE44A8 /* Assets */,
 				D7AFA00D2963F67D00EE44A8 /* Extension */,
