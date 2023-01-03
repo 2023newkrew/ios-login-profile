@@ -134,6 +134,15 @@
                             <constraint firstItem="RfS-ud-qm0" firstAttribute="top" secondItem="9dI-m4-Pdj" secondAttribute="bottom" constant="24.5" id="x7E-LD-43c"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="findAccountOrPasswordButton" destination="1ZC-Fg-wGy" id="JAx-YR-IJL"/>
+                        <outlet property="idTextField" destination="kdU-Oj-s9D" id="A4F-av-lPP"/>
+                        <outlet property="infoLabel" destination="yV4-c4-Hgk" id="vPu-Pf-Os0"/>
+                        <outlet property="passwordTextField" destination="0Ng-9x-xJX" id="EC3-Ba-V5O"/>
+                        <outlet property="signInButton" destination="RfS-ud-qm0" id="6NK-Sp-4VB"/>
+                        <outlet property="signUpButton" destination="uAo-Rw-w7T" id="nq7-qJ-I03"/>
+                        <outlet property="welcomeLabel" destination="pbd-I7-kc8" id="uOK-fD-yCN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
