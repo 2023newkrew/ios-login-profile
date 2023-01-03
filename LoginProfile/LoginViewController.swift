@@ -6,7 +6,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
     enum Constant {
         static let sideSpace = CGFloat(16)
         static let underlineSpace = CGFloat(8.5)
@@ -14,12 +14,15 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         drawUnderline(of: idTextField)
         drawUnderline(of: passwordTextField)
+        
+        idTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
     
     func drawUnderline(of textField: UITextField){
@@ -31,3 +34,19 @@ class ViewController: UIViewController {
     }
 }
 
+extension LoginViewController: UITextFieldDelegate {
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        guard let textCount = textField.text?.count else {
+            return
+        }
+        
+        if textCount >= 5 {
+            loginButton.isEnabled = true
+            loginButton.backgroundColor = UIColor(rgb: 0xFBE64C)
+            return
+        }
+        
+        loginButton.isEnabled = false
+        loginButton.backgroundColor = UIColor.systemGray6
+    }
+}
