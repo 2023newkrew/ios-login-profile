@@ -22,7 +22,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var findAccountOrPasswordButton: UIButton!
     
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
+        setDynamicTypes()
         idTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
     
@@ -33,5 +34,23 @@ class ViewController: UIViewController {
         } else {
             signInButton.backgroundColor = .systemGray6
         }
+    }
+    
+    private func setDynamicTypes() {
+        welcomeLabel.adjustsFontForContentSizeCategory = true
+        infoLabel.adjustsFontForContentSizeCategory = true
+        
+        idTextField.adjustsFontForContentSizeCategory = true
+        passwordTextField.adjustsFontForContentSizeCategory = true
+        
+        signInButton
+            .titleLabel?
+            .adjustsFontForContentSizeCategory = true
+        signUpButton
+            .titleLabel?
+            .adjustsFontForContentSizeCategory = true
+        findAccountOrPasswordButton
+            .titleLabel?
+            .adjustsFontForContentSizeCategory = true
     }
 }
