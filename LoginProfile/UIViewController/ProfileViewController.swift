@@ -19,6 +19,7 @@ class ProfileViewController: UIViewController {
     }
     
     private var closeButton: UIButton = CloseButton()
+    
     private var topMenuStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
@@ -27,6 +28,9 @@ class ProfileViewController: UIViewController {
         stackView.spacing = Constant.topMenuStackViewHorizontalSpace
         return stackView
     }()
+    private var giftButton: UIButton = GiftButton()
+    private var wonButton: UIButton = WonButton()
+    private var favouriteButton: UIButton = FavouriteButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +38,9 @@ class ProfileViewController: UIViewController {
         
         self.closeButton.addTarget(self, action: #selector(closeButtonTouched(sender:)), for: .touchUpInside)
         
-        self.configureCloseButton()
-        self.configureTopMenuStackView()
+        self.configureCloseButtonLayout()
+        self.configureTopMenuStackViewLayout()
+        self.configureTopMenuStackViewItems()
     }
 }
 
@@ -53,7 +58,7 @@ extension ProfileViewController {
         return self.view.safeAreaLayoutGuide.bottomAnchor
     }
     
-    func configureCloseButton() {
+    func configureCloseButtonLayout() {
         self.closeButton.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(self.closeButton)
         NSLayoutConstraint.activate([
@@ -64,15 +69,20 @@ extension ProfileViewController {
         ])
     }
     
-    func configureTopMenuStackView() {
+    func configureTopMenuStackViewLayout() {
         self.topMenuStackView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(self.topMenuStackView)
         NSLayoutConstraint.activate([
             self.topMenuStackView.trailingAnchor.constraint(equalTo: self.safeAreaTrailingAnchor, constant: -Constant.topMenuStackViewHorizontalSpace),
             self.topMenuStackView.centerYAnchor.constraint(equalTo: self.safeAreaTopAnchor, constant: Constant.topIconVerticalSpace),
-            self.topMenuStackView.widthAnchor.constraint(equalToConstant: Constant.topMenuStackViewWidth),
             self.topMenuStackView.heightAnchor.constraint(equalToConstant: Constant.topMenuStackViewHeight)
         ])
+    }
+    
+    func configureTopMenuStackViewItems() {
+        [self.giftButton, self.wonButton, self.favouriteButton].forEach {
+            self.topMenuStackView.addArrangedSubview($0)
+        }
     }
 }
 
