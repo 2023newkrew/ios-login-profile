@@ -21,12 +21,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setDynamicTypes()
         setLocalized()
-        idTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        idTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
     
     @objc
-    private func textFieldDidChange() {
-        guard let idText = idTextField.text else { return }
+    private func textFieldDidChange(_ sender: UITextField) {
+        guard let idText = sender.text else { return }
         if idText.count >= Constants.idMinimumLength {
             signInButton.backgroundColor = .systemYellow
         } else {
@@ -63,6 +63,13 @@ class ViewController: UIViewController {
             .titleLabel?
             .adjustsFontForContentSizeCategory = true
     }
+    
+    @IBAction func showProfileScene(_ sender: UIButton) {
+        let vc = ProfileViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+    
 }
 
 fileprivate enum Constants {
