@@ -20,7 +20,8 @@ class ProfileViewController: UIViewController {
         static let bottomMenuStackViewItemHorizontalSpace = CGFloat(30)
         static let bottomMenuStackViewVerticalSpace = CGFloat(64)
         static let bottomMenuStackViewHorizontalSpace = CGFloat(25)
-//        static let bottomMenuStackViewHeight = CGFloat(40)
+        static let bottomSafeArea = CGFloat(44)
+        static let lineVerticalSpace = CGFloat(25)
     }
     
     enum BottomMenuImageName {
@@ -49,7 +50,7 @@ class ProfileViewController: UIViewController {
     private var wonButton: UIButton = WonButton()
     private var favouriteButton: UIButton = FavouriteButton()
     
-    private var bottmMenuStackView: UIStackView = {
+    private var bottomMenuStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.alignment = .fill
@@ -63,7 +64,7 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.red
+        self.view.backgroundColor = UIColor.black
         
         self.closeButton.addTarget(self, action: #selector(closeButtonTouched(sender:)), for: .touchUpInside)
         
@@ -72,6 +73,7 @@ class ProfileViewController: UIViewController {
         self.configureTopMenuStackViewItems()
         self.configureBottomMenuStackViewLayout()
         self.configureBottomMenuStackViewItems()
+        self.drawLine()
     }
 }
 
@@ -118,21 +120,37 @@ extension ProfileViewController {
     }
     
     func configureBottomMenuStackViewLayout() {
-        self.bottmMenuStackView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(self.bottmMenuStackView)
+        self.bottomMenuStackView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(self.bottomMenuStackView)
         NSLayoutConstraint.activate([
-            self.bottmMenuStackView.leadingAnchor.constraint(equalTo: safeAreaLeadingAnchor, constant: Constant.bottomMenuStackViewHorizontalSpace),
-            self.bottmMenuStackView.trailingAnchor.constraint(equalTo: safeAreaTrailingAnchor, constant: -Constant.bottomMenuStackViewHorizontalSpace),
-            self.bottmMenuStackView.bottomAnchor.constraint(equalTo: safeAreaBottomAnchor, constant: -Constant.bottomMenuStackViewVerticalSpace),
-            self.bottmMenuStackView.heightAnchor.constraint(equalToConstant: Constant.bottomMenuStackViewHeight)
+            self.bottomMenuStackView.leadingAnchor.constraint(equalTo: safeAreaLeadingAnchor, constant: Constant.bottomMenuStackViewHorizontalSpace),
+            self.bottomMenuStackView.trailingAnchor.constraint(equalTo: safeAreaTrailingAnchor, constant: -Constant.bottomMenuStackViewHorizontalSpace),
+            self.bottomMenuStackView.bottomAnchor.constraint(equalTo: safeAreaBottomAnchor, constant: -Constant.bottomMenuStackViewVerticalSpace),
+            self.bottomMenuStackView.heightAnchor.constraint(equalToConstant: Constant.bottomMenuStackViewHeight)
         ])
     }
     
     func configureBottomMenuStackViewItems() {
         let items = [self.messageBottomMenuItemView, self.phoneCallBottomMenuItemView, self.kakaoStoryBottomMenuItemView]
         items.forEach {
-            self.bottmMenuStackView.addArrangedSubview($0)
+            self.bottomMenuStackView.addArrangedSubview($0)
         }
+    }
+    
+    func drawLine() {
+        let border = CALayer()
+        
+        let startXPoint = Double(0)
+        let startYPoint = self.view.frame.height - (Constant.bottomMenuStackViewHeight + Constant.bottomMenuStackViewVerticalSpace + Constant.bottomSafeArea + Constant.lineVerticalSpace)
+        let lineWidth = self.view.frame.width
+        let lineHeight = Double(1)
+        let lineAlpha = CGFloat(0.3)
+        print(startYPoint)
+        
+        border.frame = CGRect(x: startXPoint, y: startYPoint, width: lineWidth, height: lineHeight)
+        border.backgroundColor = UIColor.white.withAlphaComponent(lineAlpha).cgColor
+        
+        self.view.layer.addSublayer(border)
     }
 }
 
