@@ -22,6 +22,10 @@ class ProfileViewController: UIViewController {
         static let bottomMenuStackViewHorizontalSpace = CGFloat(25)
         static let bottomSafeArea = CGFloat(44)
         static let lineVerticalSpace = CGFloat(25)
+        static let profileLabelVerticalSpace = CGFloat(76)
+        static let profileImageButtonVerticalSpace = CGFloat(15)
+        static let profileImageButtonSize = CGFloat(100)
+        static let profileImageRadius = CGFloat(Constant.profileImageButtonSize * 0.3)
     }
     
     enum BottomMenuImageName {
@@ -61,6 +65,22 @@ class ProfileViewController: UIViewController {
     private var messageBottomMenuItemView = BottomMenuItemView(imageName: BottomMenuImageName.messageIcon, text: BottomMenuItemText.message, frame: CGRect())
     private var phoneCallBottomMenuItemView = BottomMenuItemView(imageName: BottomMenuImageName.phoneCallIcon, text: BottomMenuItemText.phoneCall, frame: CGRect())
     private var kakaoStoryBottomMenuItemView = BottomMenuItemView(imageName: BottomMenuImageName.kakaoStoryIcon, text: BottomMenuItemText.kakaoStory, frame: CGRect())
+    
+    private var profileImageButton = {
+        let button = UIButton()
+        button.backgroundColor = .white
+        button.clipsToBounds = true
+        button.layer.cornerRadius = Constant.profileImageRadius
+        return button
+    }()
+    
+    private var profileNameLabel = {
+        let label = UILabel()
+        label.text = "No More View"
+        label.textColor = .white
+        label.textAlignment = .center
+        return label
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +94,8 @@ class ProfileViewController: UIViewController {
         self.configureBottomMenuStackViewLayout()
         self.configureBottomMenuStackViewItems()
         self.drawLine()
+        self.configureProfileNameLabelLayout()
+        self.configureProfileImageButtonLayout()
     }
 }
 
@@ -151,6 +173,26 @@ extension ProfileViewController {
         border.backgroundColor = UIColor.white.withAlphaComponent(lineAlpha).cgColor
         
         self.view.layer.addSublayer(border)
+    }
+    
+    func configureProfileNameLabelLayout() {
+        self.profileNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(self.profileNameLabel)
+        NSLayoutConstraint.activate([
+            self.profileNameLabel.bottomAnchor.constraint(equalTo: self.bottomMenuStackView.topAnchor, constant: -Constant.profileLabelVerticalSpace),
+            self.profileNameLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+        ])
+    }
+    
+    func configureProfileImageButtonLayout() {
+        self.profileImageButton.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(self.profileImageButton)
+        NSLayoutConstraint.activate([
+            self.profileImageButton.bottomAnchor.constraint(equalTo: self.profileNameLabel.topAnchor, constant: -Constant.profileImageButtonVerticalSpace),
+            self.profileImageButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            self.profileImageButton.widthAnchor.constraint(equalToConstant: Constant.profileImageButtonSize),
+            self.profileImageButton.heightAnchor.constraint(equalToConstant: Constant.profileImageButtonSize)
+        ])
     }
 }
 
