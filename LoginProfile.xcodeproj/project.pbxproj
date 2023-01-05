@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C26DB50429665EF60011D981 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26DB50329665EF60011D981 /* ProfileViewController.swift */; };
+		C26DB50629669A690011D981 /* BottomMenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26DB50529669A690011D981 /* BottomMenuItemView.swift */; };
 		C7D7D7952767836100F01B39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D7D7942767836100F01B39 /* AppDelegate.swift */; };
 		C7D7D7972767836100F01B39 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D7D7962767836100F01B39 /* SceneDelegate.swift */; };
 		C7D7D7992767836100F01B39 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D7D7982767836100F01B39 /* LoginViewController.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		C26DB50329665EF60011D981 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		C26DB50529669A690011D981 /* BottomMenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomMenuItemView.swift; sourceTree = "<group>"; };
 		C7D7D7912767836100F01B39 /* LoginProfile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginProfile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7D7D7942767836100F01B39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7D7D7962767836100F01B39 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				C7D7D7AB276783B200F01B39 /* FavouriteButton.swift */,
 				C7D7D7A9276783B200F01B39 /* GiftButton.swift */,
 				C7D7D7AA276783B200F01B39 /* WonButton.swift */,
+				C26DB50529669A690011D981 /* BottomMenuItemView.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 				C7D7D7B1276783B200F01B39 /* CircleButton.swift in Sources */,
 				D7AFA00A2963F36B00EE44A8 /* UIColor+Extension.swift in Sources */,
 				C7D7D7AD276783B200F01B39 /* CloseButton.swift in Sources */,
+				C26DB50629669A690011D981 /* BottomMenuItemView.swift in Sources */,
 				C7D7D7972767836100F01B39 /* SceneDelegate.swift in Sources */,
 				C7D7D7AF276783B200F01B39 /* WonButton.swift in Sources */,
 				C7D7D7AE276783B200F01B39 /* GiftButton.swift in Sources */,
