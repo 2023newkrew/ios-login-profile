@@ -19,13 +19,13 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        drawUnderline(of: idTextField)
-        drawUnderline(of: passwordTextField)
+        self.drawUnderline(of: idTextField)
+        self.drawUnderline(of: passwordTextField)
     }
 }
 
 extension LoginViewController {
-    func drawUnderline(of textField: UITextField){
+    func drawUnderline(of textField: UITextField) {
         let border = CALayer()
         let underlineWidth = self.view.frame.width - Constant.sideSpace * 2
         border.frame = CGRect(x: 0, y: textField.frame.size.height + Constant.underlineSpace, width: underlineWidth, height: 1)
@@ -35,18 +35,18 @@ extension LoginViewController {
 }
 
 extension LoginViewController {
-    @IBAction func idTextFieldChanged(_ sender: Any) {
-        guard let textCount = idTextField.text?.count else {
+    @IBAction func idTextFieldChanged(_ sender: UITextField) {
+        guard let textCount = self.idTextField.text?.count else {
             return
         }
         
         if textCount >= 5 {
-            loginButton.isEnabled = true
-            loginButton.backgroundColor = UIColor(rgb: 0xFBE64C)
+            self.loginButton.isEnabled = true
+            self.loginButton.backgroundColor = UIColor(rgb: 0xFBE64C)
             return
         }
         
-        loginButton.isEnabled = false
-        loginButton.backgroundColor = UIColor.systemGray6
+        self.loginButton.isEnabled = false
+        self.loginButton.backgroundColor = UIColor.systemGray6
     }
 }
