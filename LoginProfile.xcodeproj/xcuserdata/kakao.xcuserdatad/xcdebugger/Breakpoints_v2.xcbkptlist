@@ -14,9 +14,9 @@
             filePath = "LoginProfile/UIViewController/ProfileViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "safeAreaTrailingAnchor"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "safeAreaLeadingAnchor"
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
