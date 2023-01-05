@@ -22,6 +22,11 @@ class LoginViewController: UIViewController {
         self.drawUnderline(of: idTextField)
         self.drawUnderline(of: passwordTextField)
     }
+    @IBAction func loginButtonTapped(_ sender: UIButton) {
+        let profileViewController = ProfileViewController()
+        profileViewController.modalPresentationStyle = .fullScreen
+        self.present(profileViewController, animated: true)
+    }
 }
 
 extension LoginViewController {
