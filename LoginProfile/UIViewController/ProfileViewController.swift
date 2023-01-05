@@ -8,7 +8,7 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-    enum Constant {
+    private enum Constant {
         static let closeButtonSize = CGFloat(22)
         static let closeButtonLeftSpace = CGFloat(22)
         static let topIconVerticalSpace = CGFloat(20) + (closeButtonLeftSpace/2)
@@ -28,21 +28,21 @@ class ProfileViewController: UIViewController {
         static let profileImageRadius = CGFloat(Constant.profileImageButtonSize * 0.3)
     }
     
-    enum BottomMenuImageName {
+    private enum BottomMenuImageName {
         static let messageIcon = "messageIcon"
         static let phoneCallIcon = "phoneCallIcon"
         static let kakaoStoryIcon = "kakaoStoryIcon"
     }
     
-    enum BottomMenuItemText {
+    private enum BottomMenuItemText {
         static let message = "1:1 채팅"
         static let phoneCall = "통화하기"
         static let kakaoStory = "카카오스토리"
     }
     
-    private var closeButton: UIButton = CloseButton()
+    private let closeButton: UIButton = CloseButton()
     
-    private var topMenuStackView: UIStackView = {
+    private let topMenuStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.alignment = .fill
@@ -50,11 +50,11 @@ class ProfileViewController: UIViewController {
         stackView.spacing = Constant.topMenuStackViewHorizontalSpace
         return stackView
     }()
-    private var giftButton: UIButton = GiftButton()
-    private var wonButton: UIButton = WonButton()
-    private var favouriteButton: UIButton = FavouriteButton()
+    private let giftButton: UIButton = GiftButton()
+    private let wonButton: UIButton = WonButton()
+    private let favouriteButton: UIButton = FavouriteButton()
     
-    private var bottomMenuStackView: UIStackView = {
+    private let bottomMenuStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.alignment = .fill
@@ -62,11 +62,11 @@ class ProfileViewController: UIViewController {
         stackView.spacing = Constant.bottomMenuStackViewItemHorizontalSpace
         return stackView
     }()
-    private var messageBottomMenuItemView = BottomMenuItemView(imageName: BottomMenuImageName.messageIcon, text: BottomMenuItemText.message, frame: CGRect())
-    private var phoneCallBottomMenuItemView = BottomMenuItemView(imageName: BottomMenuImageName.phoneCallIcon, text: BottomMenuItemText.phoneCall, frame: CGRect())
-    private var kakaoStoryBottomMenuItemView = BottomMenuItemView(imageName: BottomMenuImageName.kakaoStoryIcon, text: BottomMenuItemText.kakaoStory, frame: CGRect())
+    private let messageBottomMenuItemView = BottomMenuItemView(imageName: BottomMenuImageName.messageIcon, text: BottomMenuItemText.message, frame: CGRect())
+    private let phoneCallBottomMenuItemView = BottomMenuItemView(imageName: BottomMenuImageName.phoneCallIcon, text: BottomMenuItemText.phoneCall, frame: CGRect())
+    private let kakaoStoryBottomMenuItemView = BottomMenuItemView(imageName: BottomMenuImageName.kakaoStoryIcon, text: BottomMenuItemText.kakaoStory, frame: CGRect())
     
-    private var profileImageButton = {
+    private let profileImageButton = {
         let button = UIButton()
         button.backgroundColor = .white
         button.clipsToBounds = true
@@ -74,7 +74,7 @@ class ProfileViewController: UIViewController {
         return button
     }()
     
-    private var profileNameLabel = {
+    private let profileNameLabel = {
         let label = UILabel()
         label.text = "No More View"
         label.textColor = .white
@@ -100,20 +100,20 @@ class ProfileViewController: UIViewController {
 }
 
 extension ProfileViewController {
-    var safeAreaLeadingAnchor: NSLayoutXAxisAnchor {
+    private var safeAreaLeadingAnchor: NSLayoutXAxisAnchor {
         return self.view.safeAreaLayoutGuide.leadingAnchor
     }
-    var safeAreaTrailingAnchor: NSLayoutXAxisAnchor {
+    private var safeAreaTrailingAnchor: NSLayoutXAxisAnchor {
         return self.view.safeAreaLayoutGuide.trailingAnchor
     }
-    var safeAreaTopAnchor: NSLayoutYAxisAnchor {
+    private var safeAreaTopAnchor: NSLayoutYAxisAnchor {
         return self.view.safeAreaLayoutGuide.topAnchor
     }
-    var safeAreaBottomAnchor: NSLayoutYAxisAnchor {
+    private var safeAreaBottomAnchor: NSLayoutYAxisAnchor {
         return self.view.safeAreaLayoutGuide.bottomAnchor
     }
     
-    func configureCloseButtonLayout() {
+    private func configureCloseButtonLayout() {
         self.closeButton.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(self.closeButton)
         NSLayoutConstraint.activate([
@@ -124,7 +124,7 @@ extension ProfileViewController {
         ])
     }
     
-    func configureTopMenuStackViewLayout() {
+    private func configureTopMenuStackViewLayout() {
         self.topMenuStackView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(self.topMenuStackView)
         NSLayoutConstraint.activate([
@@ -134,14 +134,14 @@ extension ProfileViewController {
         ])
     }
     
-    func configureTopMenuStackViewItems() {
+    private func configureTopMenuStackViewItems() {
         let buttons = [self.giftButton, self.wonButton, self.favouriteButton]
         buttons.forEach {
             self.topMenuStackView.addArrangedSubview($0)
         }
     }
     
-    func configureBottomMenuStackViewLayout() {
+    private func configureBottomMenuStackViewLayout() {
         self.bottomMenuStackView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(self.bottomMenuStackView)
         NSLayoutConstraint.activate([
@@ -152,14 +152,14 @@ extension ProfileViewController {
         ])
     }
     
-    func configureBottomMenuStackViewItems() {
+    private func configureBottomMenuStackViewItems() {
         let items = [self.messageBottomMenuItemView, self.phoneCallBottomMenuItemView, self.kakaoStoryBottomMenuItemView]
         items.forEach {
             self.bottomMenuStackView.addArrangedSubview($0)
         }
     }
     
-    func drawLine() {
+    private func drawLine() {
         let border = CALayer()
         
         let startXPoint = Double(0)
@@ -167,7 +167,6 @@ extension ProfileViewController {
         let lineWidth = self.view.frame.width
         let lineHeight = Double(1)
         let lineAlpha = CGFloat(0.3)
-        print(startYPoint)
         
         border.frame = CGRect(x: startXPoint, y: startYPoint, width: lineWidth, height: lineHeight)
         border.backgroundColor = UIColor.white.withAlphaComponent(lineAlpha).cgColor
@@ -175,7 +174,7 @@ extension ProfileViewController {
         self.view.layer.addSublayer(border)
     }
     
-    func configureProfileNameLabelLayout() {
+    private func configureProfileNameLabelLayout() {
         self.profileNameLabel.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(self.profileNameLabel)
         NSLayoutConstraint.activate([
@@ -184,7 +183,7 @@ extension ProfileViewController {
         ])
     }
     
-    func configureProfileImageButtonLayout() {
+    private func configureProfileImageButtonLayout() {
         self.profileImageButton.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(self.profileImageButton)
         NSLayoutConstraint.activate([
@@ -197,7 +196,7 @@ extension ProfileViewController {
 }
 
 extension ProfileViewController {
-    @objc func closeButtonTouched(sender: UIButton) {
+    @objc private func closeButtonTouched(sender: UIButton) {
         self.dismiss(animated: true)
     }
 }
