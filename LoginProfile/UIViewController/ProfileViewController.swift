@@ -71,12 +71,13 @@ class ProfileViewController: UIViewController {
         button.backgroundColor = .white
         button.clipsToBounds = true
         button.layer.cornerRadius = Constant.profileImageRadius
+        button.setImage(UIImage(named: "yagomProfileIcon"), for: .normal)
         return button
     }()
     
     private let profileNameLabel = {
         let label = UILabel()
-        label.text = "No More View"
+        label.text = "yagom"
         label.textColor = .white
         label.textAlignment = .center
         return label
